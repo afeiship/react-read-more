@@ -13,6 +13,11 @@ ul,li{list-style: none;}
     width:100%;
     padding:10px;
     margin-bottom: 10px;
+
+    &.btn-oragne{
+      background: #f60;
+      color:#fff;
+    }
   }
 
   .react-read-more-actions{

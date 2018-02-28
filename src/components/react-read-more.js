@@ -12,12 +12,14 @@ export default class extends Component{
     maxHeight: PropTypes.string,
     onChange: PropTypes.func,
     value: PropTypes.bool,
+    collapseable: PropTypes.bool,
     elements: PropTypes.array,
   };
 
   static defaultProps = {
     maxHeight: '10000px',
     value: false,
+    collapseable: true,
     onChange: noop,
     elements:[ 'COLLAPSE','EXPAND' ]
   };
@@ -51,10 +53,13 @@ export default class extends Component{
   }
 
   syncState = () => {
-    const { value, onChange } = this.props;
+    const { value, onChange, collapseable } = this.props;
     const action = value ? 'max' : 'min';
     const _maxHeight = Math[action]( this._wrapper.offsetHeight, this._content.offsetHeight );
-    const visible = _maxHeight >= parseFloat(this.props.maxHeight)
+    const visible = collapseable
+      ? _maxHeight >= parseFloat(this.props.maxHeight)
+      : !value;
+
     this.setState({
       maxHeight: `${_maxHeight}px`,
       visible
@@ -69,7 +74,7 @@ export default class extends Component{
 
 
   render(){
-    const { className, children, elements, maxHeight, value, ...props } = this.props;
+    const { className, children, elements, maxHeight, value, collapseable, ...props } = this.props;
     return (
       <section data-expanded={value} { ...props } className={ classNames('react-read-more',className) }>
         <div ref='wrapper' className='react-read-more-wrapper' style={{ maxHeight: this.state.maxHeight }}>

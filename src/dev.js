@@ -8,6 +8,7 @@ import ReactReadMore from './main';
 
 class App extends React.Component{
   state = {
+    collapseable: true,
     value: false,
     maxHeight: '5rem'
   };
@@ -28,14 +29,21 @@ class App extends React.Component{
     this.setState({ maxHeight: `${e}px`})
   };
 
+  _onToggle = e =>{
+    this.setState({
+      collapseable: !this.state.collapseable
+    })
+  };
+
   render(){
     return (
       <div className="hello-react-read-more">
-        <button className="demo-btn" onClick={this._onClick.bind(this, 250)}>Set maxHeight: 250px;</button>
+        <button className="demo-btn btn-oragne" onClick={this._onToggle}>Toggle collapseable:{ ''+(this.state.collapseable)}</button>
+        <button className="demo-btn" onClick={this._onClick.bind(this, 300)}>Set maxHeight: 300px;</button>
         <button className="demo-btn" onClick={this._onClick.bind(this, 120)}>Set maxHeight: 120px;</button>
         <button className="demo-btn" onClick={this._onClick.bind(this, 100)}>Set maxHeight: 100px;</button>
         <button className="demo-btn" onClick={this._onClick.bind(this, 20)}>Set maxHeight: 20px;</button>
-        <ReactReadMore ref='rc' maxHeight={this.state.maxHeight} elements={
+        <ReactReadMore ref='rc' collapseable={this.state.collapseable} maxHeight={this.state.maxHeight} elements={
           [
             'CLOSE',
             'OPEN',
