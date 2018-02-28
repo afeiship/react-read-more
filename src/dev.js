@@ -37,15 +37,16 @@ class App extends React.Component{
         <button className="demo-btn" onClick={this._onClick.bind(this, 20)}>Set maxHeight: 20px;</button>
         <ReactReadMore ref='rc' maxHeight={this.state.maxHeight} elements={
           [
-            '☂CLOSE',
-            '☃OPEN',
+            'CLOSE',
+            'OPEN',
           ]
         } value={this.state.value} onChange={ this._onChange }>
-          XXX(商家名)，有一件宝贝退货申请，立即查看>>>（售后订单列表）
-          同意退货：通知对象为买家，通知方式为极光推送和系统消息。
-          亲爱的藏友，退货申请已处理，前往查看>>>（售后订单列表）
-          申请退款：通知对象为卖家，通知方式为极光推送和系统消息
-          XXX(商家名)，有一笔退款申请未处理，立即查看>>>（售后订单列表）
+        <p>This is by far the biggest deep dive I've seen on CSS Variables posted to the web and it's merely Chapter One of complete e-book on the topic.</p>
+        <p>Truth is, I'm still on the thick of reading through this myself, but had to stop somewhere in the middle to write this up and share it because </p>
+        <p>it's just that gosh-darned useful. For example, the post goes into great detail on three specific use cases for CSS Variables and breaks the code </p>
+        <p>
+        down to give a better understanding of what it does, in true tutorial fashion.
+        Scoping, inheritance, resolving multiple declarations, little gotchas_there's plenty in here for beginners and advanced developers alike.</p>
         </ReactReadMore>
       </div>
     );
