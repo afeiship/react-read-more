@@ -1,0 +1,23 @@
+*{margin: 0;padding:0;box-sizing: border-box;}
+ul,li{list-style: none;}
+
+@import './components/style.scss';
+
+
+.hello-react-read-more{
+  padding:50px 20px;
+  border: 1px solid #000;
+
+  .demo-btn{
+    background: #4cd964;
+    width:100%;
+    padding:10px;
+    margin-bottom: 10px;
+  }
+
+  .react-read-more-actions{
+    background: #eee;
+    padding:10px;
+    width:100%;
+  }
+}

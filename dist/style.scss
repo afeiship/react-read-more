@@ -1,0 +1,15 @@
+$react-read-more-options:(
+  gap: 5px
+)!default;
+
+.react-read-more{
+  $gap: map-get($map: $react-read-more-options, $key: gap);
+
+  &-wrapper{
+    overflow: hidden;
+  }
+  &-actions{
+    margin-top: $gap;
+    width:100%;
+  }
+}
