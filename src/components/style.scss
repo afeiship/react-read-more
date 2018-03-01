@@ -5,16 +5,6 @@ $react-read-more-options:(
 .react-read-more{
   $gap: map-get($map: $react-read-more-options, $key: gap);
 
-
-  &[data-expanded=true],
-  &[data-actions-visible=false]{
-    .react-read-more-wrapper{
-      &::after{
-        background: none;
-      }
-    }
-  }
-
   &-wrapper{
     overflow: hidden;
   }
