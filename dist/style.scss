@@ -1,12 +1,36 @@
 $react-read-more-options:(
-  gap: 5px
+  gap: 5px,
+  gradient-color:#fff,
+  gradient-height: 30px
 )!default;
 
 .react-read-more{
   $gap: map-get($map: $react-read-more-options, $key: gap);
+  $gradient-color: map-get($map: $react-read-more-options, $key: gradient-color);
+  $gradient-height: map-get($map: $react-read-more-options, $key: gradient-height);
+
+
+  &[data-expanded=true],
+  &[data-actions-visible=false]{
+    .react-read-more-wrapper{
+      &::after{
+        background: none;
+      }
+    }
+  }
 
   &-wrapper{
     overflow: hidden;
+    position: relative;
+    &::after {
+      content: '\200B';
+      position: absolute;
+      bottom: 0;
+      width:100%;
+      height: $gradient-height;
+      background: linear-gradient(rgba(255, 255, 255, 0.01), $gradient-color); /* transparent keyword is broken in Safari */
+      pointer-events: none;
+    }
   }
   &-actions{
     margin-top: $gap;

@@ -76,7 +76,7 @@ export default class extends Component{
   render(){
     const { className, children, elements, maxHeight, value, collapseable, ...props } = this.props;
     return (
-      <section data-expanded={value} { ...props } className={ classNames('react-read-more',className) }>
+      <section data-expanded={value} data-actions-visible={this.state.visible} { ...props } className={ classNames('react-read-more',className) }>
         <div ref='wrapper' className='react-read-more-wrapper' style={{ maxHeight: this.state.maxHeight }}>
           <div ref='content' className='react-read-more-content'>
             { children }
