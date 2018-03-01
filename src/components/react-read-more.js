@@ -33,6 +33,14 @@ export default class extends Component{
     };
   }
 
+  get maxHeight(){
+    const { value, onChange, collapseable } = this.props;
+    const action = value ? 'max' : 'min';
+    const _maxHeight = Math[action]( this._wrapper.offsetHeight, this._content.offsetHeight );
+    return _maxHeight;
+  }
+
+
   componentDidMount() {
     const { wrapper, content } = this.refs;
     this._wrapper = wrapper;
@@ -41,8 +49,8 @@ export default class extends Component{
   }
 
   componentWillReceiveProps(inProps){
-    const { maxHeight } = inProps;
-    if( maxHeight !== this.state.maxHeight ){
+    const { maxHeight, value } = inProps;
+    if( value !== this.props.value ){
       this.setState({ maxHeight }, this.syncState);
     }
   }
@@ -71,7 +79,6 @@ export default class extends Component{
     const target = { value: !value, callback: this.syncState};
     onChange({ target });
   };
-
 
   render(){
     const { className, children, elements, maxHeight, value, collapseable, ...props } = this.props;
