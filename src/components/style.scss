@@ -3,9 +3,7 @@ $react-read-more-options:(
 )!default;
 
 .react-read-more{
-
   $gap: map-get($map: $react-read-more-options, $key: gap);
-
   &-wrapper{
     overflow: hidden;
   }
