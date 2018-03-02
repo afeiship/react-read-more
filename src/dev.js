@@ -8,8 +8,8 @@ import ReactReadMore from './main';
 
 class App extends React.Component{
   state = {
+    value: true,
     collapseable: true,
-    value: false,
     maxHeight: '5rem'
   };
 
@@ -19,11 +19,6 @@ class App extends React.Component{
     window.refs = this.refs;
     window.rc = this.refs.rc;
   }
-
-  _onChange = (e) =>{
-    const { value, callback } = e.target;
-    this.setState({ value }, callback);
-  };
 
   _onClick = e =>{
     this.setState({ maxHeight: `${e}px`})
@@ -35,6 +30,10 @@ class App extends React.Component{
     })
   };
 
+  _onChange = e =>{
+    console.log(e.target.value);
+  };
+
   render(){
     return (
       <div className="hello-react-read-more">
@@ -43,12 +42,12 @@ class App extends React.Component{
         <button className="demo-btn" onClick={this._onClick.bind(this, 120)}>Set maxHeight: 120px;</button>
         <button className="demo-btn" onClick={this._onClick.bind(this, 100)}>Set maxHeight: 100px;</button>
         <button className="demo-btn" onClick={this._onClick.bind(this, 20)}>Set maxHeight: 20px;</button>
-        <ReactReadMore ref='rc' collapseable={this.state.collapseable} maxHeight={this.state.maxHeight} elements={
+        <ReactReadMore ref='rc' onChange={this._onChange} collapseable={this.state.collapseable} maxHeight={this.state.maxHeight} elements={
           [
             'CLOSE',
             'OPEN',
           ]
-        } value={this.state.value} onChange={ this._onChange }>
+        }>
         <p>This is by far the biggest deep dive I've seen on CSS Variables posted to the web and it's merely Chapter One of complete e-book on the topic.</p>
         <p>Truth is, I'm still on the thick of reading through this myself, but had to stop somewhere in the middle to write this up and share it because </p>
         <p>it's just that gosh-darned useful. For example, the post goes into great detail on three specific use cases for CSS Variables and breaks the code </p>

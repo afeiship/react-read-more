@@ -3,6 +3,7 @@ $react-read-more-options:(
 )!default;
 
 .react-read-more{
+
   $gap: map-get($map: $react-read-more-options, $key: gap);
 
   &-wrapper{
@@ -12,5 +13,15 @@ $react-read-more-options:(
   &-actions{
     margin-top: $gap;
     width:100%;
+  }
+
+  &[data-expanded=true]{
+    .react-read-more-wrapper{
+      max-height: 10000px !important;
+    }
+
+    [data-collapseable=false]{
+      display: none;
+    }
   }
 }
