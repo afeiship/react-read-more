@@ -30,16 +30,31 @@ export default class extends Component{
     };
   }
 
+  componentWillReceiveProps(inProps){
+    const { children } = inProps;
+    if( children !== this.props.children){
+      //TODO: buggy solution
+      const timer = setTimeout(()=>{
+        this.detectMaxValue();
+        clearTimeout(timer);
+      },0);
+    }
+  }
+
+
   componentDidMount() {
+    this.detectMaxValue();
+  }
+
+  detectMaxValue(){
     const { content } = this.refs;
     const { maxHeight, onChange } = this.props;
     const maxHeightValue = parseFloat(maxHeight);
-    if( maxHeightValue > content.offsetHeight ){
-      const target = { value: true };
-      this.setState(target,()=>{
-        onChange({ target });
-      });
-    }
+    const value = maxHeightValue > content.offsetHeight;
+    const target = { value };
+    this.setState( target,()=>{
+      onChange({ target });
+    });
   }
 
 
