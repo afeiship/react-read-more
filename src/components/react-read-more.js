@@ -32,7 +32,7 @@ export default class extends Component{
 
   componentDidMount() {
     const { content } = this.refs;
-    const { maxHeight } = this.props;
+    const { maxHeight, onChange } = this.props;
     const maxHeightValue = parseFloat(maxHeight);
     if( maxHeightValue > content.offsetHeight ){
       const target = { value: true };
