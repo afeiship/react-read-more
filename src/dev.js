@@ -10,7 +10,7 @@ class App extends React.Component{
   state = {
     value: true,
     collapseable: true,
-    maxHeight: '5rem'
+    maxHeight: '400px'
   };
 
   constructor(props){

@@ -30,6 +30,19 @@ export default class extends Component{
     };
   }
 
+  componentDidMount() {
+    const { content } = this.refs;
+    const { maxHeight } = this.props;
+    const maxHeightValue = parseFloat(maxHeight);
+    if( maxHeightValue > content.offsetHeight ){
+      const target = { value: true };
+      this.setState(target,()=>{
+        onChange({ target });
+      });
+    }
+  }
+
+
   _onClick = () => {
     const { onChange } = this.props;
     const value = !this.state.value;
@@ -45,7 +58,7 @@ export default class extends Component{
     return (
       <section data-expanded={value} { ...props } className={ classNames('react-read-more',className) }>
         <div className='react-read-more-wrapper' style={{ maxHeight }}>
-          <div className='react-read-more-content'>
+          <div ref='content' className='react-read-more-content'>
             { children }
           </div>
         </div>
