@@ -85,8 +85,8 @@
     "classnames": "*",
     "object-assign": "*",
     "noop": "github:afeiship/noop",
-    "react": "*",
-    "react-dom": "*",
-    "prop-types": "*"
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   }
 }
