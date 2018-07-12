@@ -11,6 +11,8 @@ $react-read-more-options:(
   &-actions{
     margin-top: $gap;
     width:100%;
+    background: none;
+    border: none;
   }
 
   &[data-expanded=true]{
