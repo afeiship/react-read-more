@@ -81,12 +81,14 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
   "dependencies": {
     "classnames": "*",
     "object-assign": "*",
     "noop": "github:afeiship/noop",
-    "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "prop-types": "^15.6.1"
   }
 }
